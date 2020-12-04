@@ -1,0 +1,23 @@
+{
+  "name": "rollup-vue-datav-lib",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "rollup -wc rollup.config.dev.js",
+    "build": "rollup -c rollup.config.dev.js"
+  },
+  "keywords": [],
+  "author": "lawz <602285510@qq.com>",
+  "license": "ISC",
+  "devDependencies": {
+    "rollup": "^2.34.0",
+    "rollup-plugin-commonjs": "^10.1.0",
+    "rollup-plugin-node-resolve": "^5.2.0"
+  },
+  "dependencies": {
+    "@babel/core": "^7.12.9",
+    "@babel/preset-env": "^7.12.7"
+  }
+}
