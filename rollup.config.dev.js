@@ -1,6 +1,7 @@
 const path = require('path')
 const resolve = require('rollup-plugin-node-resolve')
 const commonJs = require('rollup-plugin-commonjs')
+import {getBabelOutputPlugin} from '@rollup/plugin-babel'
 
 const inputPath = path.resolve(__dirname, './src/index.js')
 const outputUmdPath = path.resolve(__dirname, './dist/index.umd.js')
@@ -23,7 +24,10 @@ export default {
     ],
     plugins: [
         resolve(),
-        commonJs()
+        commonJs(),
+        getBabelOutputPlugin({
+            presets: ['@babel/preset-env']
+          })
     ],
     external: ['vue']
 }

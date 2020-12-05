@@ -1,5 +1,9 @@
-import {c, b} from './a'
+// import {c, b} from './a'
 
-console.log(c);
+// console.log(c);
 
-export default c
+const a = () => {
+    return 111
+}
+
+export default a
