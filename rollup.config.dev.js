@@ -1,33 +1,44 @@
 const path = require('path')
 const resolve = require('rollup-plugin-node-resolve')
 const commonJs = require('rollup-plugin-commonjs')
-import {getBabelOutputPlugin} from '@rollup/plugin-babel'
+const babel = require('rollup-plugin-babel')
+const json = require('rollup-plugin-json')
+const vue = require('rollup-plugin-vue')
+const postcss = require('rollup-plugin-postcss')
 
 const inputPath = path.resolve(__dirname, './src/index.js')
-const outputUmdPath = path.resolve(__dirname, './dist/index.umd.js')
+const outputUmdPath = path.resolve(__dirname, './dist/index.js')
 const outputEsPath = path.resolve(__dirname, './dist/index.es.js')
 
 
 export default {
-    input: inputPath,
-    output: [
-        {
-            file: outputUmdPath,
-            format: 'umd',
-            name: 'datav'
-        },
-        {
-            file: outputEsPath,
-            format: 'es',
-            name: 'datav'
-        }
-    ],
-    plugins: [
-        resolve(),
-        commonJs(),
-        getBabelOutputPlugin({
-            presets: ['@babel/preset-env']
-          })
-    ],
-    external: ['vue']
+  input: inputPath,
+  output: [
+    {
+      file: outputUmdPath,
+      format: 'umd',
+      name: 'datav',
+      globals: {
+        vue: 'vue'
+      }
+    },
+    {
+      file: outputEsPath,
+      format: 'es',
+      name: 'datav'
+    }
+  ],
+  plugins: [
+    resolve(),
+    vue(),
+    commonJs(),
+    babel({
+      exclude: 'node_modules/**'
+    }),
+    json(),
+    postcss({
+      plugins: []
+    })
+  ],
+  external: ['vue']
 }
