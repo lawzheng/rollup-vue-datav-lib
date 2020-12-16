@@ -6,9 +6,9 @@
 <script>
 import { computed, ref } from 'vue'
 export default {
-  name: "TestComponent3",
+  name: "TestComponentThree",
   setup() {
-    const message = "hello wolrd s";
+    const message = "hello wolrd s3xxxx";
     let count = ref(1)
     const doubleCount = computed(() => count.value * 2)
     const add = () => count.value++
