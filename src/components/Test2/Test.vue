@@ -8,7 +8,7 @@ import { computed, ref } from 'vue'
 export default {
   name: "TestComponent2",
   setup() {
-    const message = "hello wolrd s2";
+    const message = "hello wolrd s2222";
     let count = ref(1)
     const doubleCount = computed(() => count.value * 2)
     const add = () => count.value++
