@@ -97,6 +97,11 @@
   }
 </script>
 
-<style scoped>
-
+<style scoped lang="scss">
+.loading {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
 </style>

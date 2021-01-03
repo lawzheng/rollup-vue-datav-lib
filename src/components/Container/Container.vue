@@ -1,5 +1,5 @@
 <template>
-  <div class="container" :ref="refName">
+  <div id="container" class="container" :ref="refName">
     <slot v-if="ready"></slot>
   </div>
 </template>
@@ -70,8 +70,8 @@
         updateScale()
       }
 
-      const onResizeDebounce = debounce(500, () => {
-        console.log('resizes')
+      const onResizeDebounce = debounce(100, () => {
+        console.log('resizesss')
         onResize()
       })
 
@@ -87,7 +87,7 @@
       const removeMutationObserver = () => {
         if (observer) {
           observer.disconnect()
-          observer.taskRecords()
+          observer.takeRecords()
           observer = null
         }
       }
