@@ -65,7 +65,6 @@
       }
 
       const onResize = async (e) => {
-        console.log(e)
         await initSize()
         updateScale()
       }

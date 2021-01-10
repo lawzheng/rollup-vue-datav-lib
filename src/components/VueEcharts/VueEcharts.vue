@@ -1,10 +1,12 @@
 <template>
-  <div class="echarts" :ref="refsName"></div>
+  <div :class="[className, 'echarts']" :ref="refsName"></div>
 </template>
 
 <script>
 import { watch, onMounted, getCurrentInstance } from 'vue'
 import Echarts from 'echarts'
+import { v4 as uuidv4} from 'uuid'
+
 export default {
   name: 'VueEcharts',
   props: {
@@ -14,11 +16,12 @@ export default {
   setup(ctx) {
     let dom, chart
     const refsName = 'echarts'
+    let className = `echarts${uuidv4()}`
     const initChart = () => {
       if (!chart) {
         // const instance = getCurrentInstance()
         // dom = instance.ctx.$refs[refsName]
-        dom = document.getElementsByClassName('echarts')[0]
+        dom = document.getElementsByClassName(className)[0]
         chart = Echarts.init(dom, ctx.theme)
       }
       if (chart && ctx.options) {
@@ -32,7 +35,8 @@ export default {
       initChart()
     })
     return {
-      refsName
+      refsName,
+      className
     }
   }
 }
