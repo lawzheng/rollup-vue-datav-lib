@@ -9,6 +9,7 @@ import Container from './components/Container/index'
 import ImoocLogo from './components/ImoocLogo/index'
 import VueCountTo from './components/VueCountTo/index'
 import VueEcharts from './components/VueEcharts/index'
+import BaseScroll from './components/BaseScroll/index'
 
 export default function(Vue) {
   Vue.use(Test)
@@ -22,4 +23,5 @@ export default function(Vue) {
   Vue.use(ImoocLogo)
   Vue.use(VueCountTo)
   Vue.use(VueEcharts)
+  Vue.use(BaseScroll)
 }
